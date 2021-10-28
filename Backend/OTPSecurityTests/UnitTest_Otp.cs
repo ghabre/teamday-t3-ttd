@@ -12,7 +12,5 @@ namespace OTPSecurityTests
             OTPService otpService = new OTPService();
             Assert.AreEqual(true, otpService.ValidateToken("abcde"));
         }
-
-
     }
 }
