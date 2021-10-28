@@ -127,6 +127,8 @@ namespace OTPSecurityTests
                 OTP = otp
             };
 
+            // Act
+            var validate = otpService.ValidateOtp(model);
 
             // Assert
             otp = otpService.GenerateOtp(email, "12345");
@@ -163,30 +165,30 @@ namespace OTPSecurityTests
 
 
 
-        [TestMethod]
-        public void TimeDurationNoWaitAfterLoginValidateTest()
-        {
-            // Arrange
-            var otpService = new OTPService();
+        //[TestMethod]
+        //public void TimeDurationNoWaitAfterLoginValidateTest()
+        //{
+        //    // Arrange
+        //    var otpService = new OTPService();
 
-            var email = "user@email.com";
+        //    var email = "user@email.com";
 
-            var otp = otpService.GenerateOtp(email, "12345");
+        //    var otp = otpService.GenerateOtp(email, "12345");
 
-            var model = new ValidateOTPModel
-            {
-                Email = email,
-                OTP = otp
-            };
+        //    var model = new ValidateOTPModel
+        //    {
+        //        Email = email,
+        //        OTP = otp
+        //    };
 
-            // Act
-            var validate = otpService.ValidateOtp(model);
+        //    // Act
+        //    var validate = otpService.ValidateOtp(model);
 
 
-            // Assert
-            otp = otpService.GenerateOtp(email, "12345");
+        //    // Assert
+        //    otp = otpService.GenerateOtp(email, "12345");
 
-        }
+        //}
 
     }
 }
