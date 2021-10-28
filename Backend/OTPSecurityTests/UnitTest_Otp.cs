@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OTPSecurity;
+using OTPSecurity.Model;
 
 namespace OTPSecurityTests
 {
@@ -12,5 +13,14 @@ namespace OTPSecurityTests
             OTPService otpService = new OTPService();
             Assert.AreEqual(true, otpService.ValidateToken("abcde"));
         }
+
+        public void TestValidate()
+        {
+            OTPService otpService = new OTPService();
+            ValidateOTPModel model = new ValidateOTPModel();
+            Assert.AreEqual(true, otpService.ValidateToken("abcde"));
+        }
+
+
     }
 }
