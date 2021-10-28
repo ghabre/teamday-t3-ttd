@@ -8,18 +8,35 @@ namespace OTPSecurityTests
     public class UnitTest_OTP
     {
         [TestMethod]
-        public void TestOTPLength()
+        public void OTPLengthTest()
         {
             OTPService otpService = new OTPService();
-            Assert.AreEqual(true, otpService.ValidateToken("abcde"));
+            var expectedOutput = true;
+            ValidateOTPModel model = new ValidateOTPModel();
+            Assert.AreEqual(expectedOutput, otpService.ValidateToken(model));
         }
 
-        public void TestValidate()
+        [TestMethod]
+        public void EmailValidateTest()
         {
             OTPService otpService = new OTPService();
+            var expectedOutput = true;
             ValidateOTPModel model = new ValidateOTPModel();
-            Assert.AreEqual(true, otpService.ValidateToken("abcde"));
+            Assert.AreEqual(expectedOutput, otpService.ValidateToken(model));
         }
+
+        [TestMethod]
+        public void TimeDurationValidateTest()
+        {
+            OTPService otpService = new OTPService();
+            var expectedOutput = true;
+            ValidateOTPModel model = new ValidateOTPModel();
+            Assert.AreEqual(expectedOutput, otpService.ValidateToken(model));
+        }
+
+
+
+
 
 
     }

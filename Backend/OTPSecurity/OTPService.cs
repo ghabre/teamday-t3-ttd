@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OTPSecurity.Model;
+using System;
 
 namespace OTPSecurity
 {
@@ -10,9 +11,9 @@ namespace OTPSecurity
 
         private const int otpLength = 5;
 
-        public bool ValidateToken(string v)
+        public bool ValidateToken(ValidateOTPModel model)
         {
-            if (v.Length < otpLength)
+            if (model.OTP.Length < otpLength)
             {
                 return false;
             }
