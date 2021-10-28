@@ -112,7 +112,7 @@ namespace OTPSecurityTests
 
         [TestMethod]
         [ExpectedException(typeof(InvalidOperationException))]
-        public void TimeDurationValidateTest()
+        public void TimeDurationValidateWhenNotWaitingTest()
         {
             // Arrange
             var otpService = new OTPService();
@@ -126,9 +126,6 @@ namespace OTPSecurityTests
                 Email = email,
                 OTP = otp
             };
-
-            // Act
-            var validate = otpService.ValidateOtp(model);
 
 
             // Assert
@@ -166,6 +163,30 @@ namespace OTPSecurityTests
 
 
 
+        [TestMethod]
+        public void TimeDurationNoWaitAfterLoginValidateTest()
+        {
+            // Arrange
+            var otpService = new OTPService();
+
+            var email = "user@email.com";
+
+            var otp = otpService.GenerateOtp(email, "12345");
+
+            var model = new ValidateOTPModel
+            {
+                Email = email,
+                OTP = otp
+            };
+
+            // Act
+            var validate = otpService.ValidateOtp(model);
+
+
+            // Assert
+            otp = otpService.GenerateOtp(email, "12345");
+
+        }
 
     }
 }
