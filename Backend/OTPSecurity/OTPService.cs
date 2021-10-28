@@ -8,9 +8,15 @@ namespace OTPSecurity
         {
         }
 
+        private const int otpLength = 5;
+
         public bool ValidateToken(string v)
         {
-            throw new NotImplementedException();
+            if (v.Length < otpLength)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }
